@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Poppins,sans-serif;
+}
+
+.admin-container{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:40px;
+  background:linear-gradient(135deg,#74ebd5,#9face6);
+}
+
+.admin-card{
+  width:100%;
+  max-width:900px;
+  padding:45px;
+  border-radius:18px;
+  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,0.75);
+  box-shadow:0 20px 60px rgba(0,0,0,0.15);
+}
+
+.main-title{
+  text-align:center;
+  font-size:28px;
+  margin-bottom:30px;
+  color: #444;
+}
+
+.section-title{
+  margin-bottom:40px;
+  font-size:20px;
+  color: #333;
+}
+
+.input-group{
+  display:flex;
+  flex-direction:column;
+  margin-bottom:18px;
+}
+
+.input-group label{
+  margin-bottom:6px;
+  font-weight:500;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.input-group input,
+.input-group textarea{
+  padding:17px;
+  border:none;
+  border-radius:8px;
+  background:#f5f7fb;
+  font-size:15px;
+  color: #222;
+}
+
+.input-group input:focus,
+.input-group textarea:focus{
+  outline:none;
+  background:white;
+  box-shadow:0 0 0 2px #6c8cff40;
+}
+
+.row{
+  display:flex;
+  gap:16px;
+}
+
+.row .input-group{
+  flex:1;
+}
+
+.submit-btn{
+  margin-top:10px;
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(90deg,#4facfe,#00f2fe);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.submit-btn:hover{
+  transform:translateY(-2px);
+}
+
+.course-admin-card{
+margin-bottom:40px;
+padding:20px;
+border:1px solid #ddd;
+border-radius:10px;
+background:#fafafa;
+}
+
+.course-points input{
+flex:1;
+padding:12px;
+border-radius:8px;
+border:none;
+background:#f5f7fb;
+}
+
+.section-subtitle{
+  color: #333;
+  margin: 40px 0;
+}
+
+
+@media(max-width:700px){
+
+  .row{
+    flex-direction:column;
+  }
+
+  .admin-card{
+    padding:30px;
+  }
+
+}
+
+
+
+.form-trainers{
+margin-top:50px;
+}
+
+/* Trainers Section */
+
+.form-trainers{
+margin-top:50px;
+padding-top:20px;
+border-top:2px solid #e8e8e8;
+}
+
+
+/* subtitle spacing */
+
+.section-subtitle{
+font-size:18px;
+margin:25px 0 10px;
+font-weight:600;
+color:#333;
+}
+
+
+/* row layout */
+
+.row{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-bottom:12px;
+}
+
+
+/* trainer inputs */
+
+.row input{
+flex:1;
+padding:12px;
+border-radius:8px;
+border:1px solid #ddd;
+background:#f8f9fb;
+font-size:14px;
+transition:0.2s;
+color: #222;
+}
+
+
+/* focus effect */
+
+.row input:focus{
+outline:none;
+border-color:#4facfe;
+background:#fff;
+box-shadow:0 0 0 2px rgba(79,172,254,0.15);
+}
+
+
+/* mobile responsive */
+
+@media(max-width:768px){
+
+.row{
+flex-direction:column;
+}
+
+}

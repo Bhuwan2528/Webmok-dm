@@ -81,9 +81,9 @@
   width: 100%;
 }
 
-.submit-btn {
+.custom-form .submit-btn {
   padding: 10px 20px;
-  background-color: #052242;
+  background: #052a52 ;
   color: white;
   border: none;
   border-radius: 999px;
@@ -165,7 +165,7 @@
   border-color: #007bff;
 }
 
-.submit-btn {
+.custom-form .submit-btn {
   margin-top: 10px;
   padding: 15px 20px;
   background-color: #00307a;

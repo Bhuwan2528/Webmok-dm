@@ -1,100 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Header from "./Components/Header/Header";
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Login from "./Admin/Login/Login";
+import HeroAboutVideo from "./Admin/AdminForm/HeroAboutVideo";
+import CoursesTrainner from "./Admin/AdminForm/CoursesTrainner";
+import ChooseFooter from "./Admin/AdminForm/ChooseFooter";
+import AdminPanel from "./Admin/AdminPanel/AdminPanel";
 
 const App = () => {
-  const [showPopup, setShowPopup] = useState(false);
-
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    city: ""
-  });
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowPopup(true);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const openPopup = () => setShowPopup(true);
-  const closePopup = () => setShowPopup(false);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const message = `New Enquiry:%0A
-Name: ${formData.name}%0A
-Phone: ${formData.phone}%0A
-City: ${formData.city}`;
-
-    const whatsappURL = `https://wa.me/919650539195?text=${message}`;
-
-    window.open(whatsappURL, "_blank");
-  };
 
   return (
-    <div>
-      {/* Background content */}
-      <div className={`main-container ${showPopup ? "blurred" : ""}`}>
-        <Header openPopup={openPopup} />
-      </div>
+    <Routes>
 
-      {/* Popup */}
-      {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup-form">
+      <Route path="/" element={<Header />} />
 
-            <button className="close-btn" onClick={closePopup}>
-              ✕
-            </button>
+      <Route path="/login" element={<Login />} />
+      <Route path="/admin-panel" element={<AdminPanel />} />
+      <Route path="/admin-hero-about-video" element={<HeroAboutVideo />} />
+      <Route path="/admin-courses-trainner" element={<CoursesTrainner />} />
+      <Route path="/admin-choose-footer" element={<ChooseFooter />} />
 
-            <h2>Fill this Form & get a Call Now</h2>
-
-            <form onSubmit={handleSubmit}>
-
-              <input
-                type="text"
-                name="name"
-                placeholder="Enter Your Name"
-                onChange={handleChange}
-                required
-              />
-
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Enter Your Number"
-                onChange={handleChange}
-                required
-              />
-
-              <input
-                type="text"
-                name="city"
-                placeholder="Enter Your City"
-                onChange={handleChange}
-                required
-              />
-
-              <button className="submit" type="submit">
-                Submit
-              </button>
-
-            </form>
-          </div>
-        </div>
-      )}
-    </div>
+    </Routes>
   );
 };
 

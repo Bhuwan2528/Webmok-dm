@@ -1,14 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import './Course.css'
-import graphic from '../../assets/graphic.png'
-import digital from '../../assets/digital.webp'
-import video from '../../assets/video.jpeg'
-import brochure from '../../assets/webmok-brochure.pdf'
+import "./Course.css";
+import brochure from "../../assets/webmok-brochure.pdf";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaArrowRight } from "react-icons/fa6";
 
-const Course = ({openPopup}) => {
+const Course = ({ data, openPopup }) => {
 
 const containerRef = useRef(null)
 
@@ -17,35 +14,90 @@ const [name,setName] = useState("")
 const [mobile,setMobile] = useState("")
 const [city,setCity] = useState("")
 
-useEffect(() => {
+useEffect(()=>{
 AOS.init({
-duration: 1000,
-once: false,
-});
-AOS.refresh();
-}, []);
+duration:1000,
+once:false
+})
+AOS.refresh()
+},[])
 
-const openDownloadPopup = () =>{
+
+/* FALLBACK COURSES */
+
+const defaultCourses = [
+
+{
+image:"https://res.cloudinary.com/demo/image/upload/sample.jpg",
+title:"Advanced Digital Marketing Course",
+points:[
+"Social Media Marketing",
+"Pay Per Click",
+"Analytical Tools",
+"Search Engine Optimization",
+"Content Marketing"
+]
+},
+
+{
+image:"https://res.cloudinary.com/demo/image/upload/sample.jpg",
+title:"Business & Personality Development",
+points:[
+"Communication Skills",
+"Leadership Qualities",
+"Time Management",
+"Problem-Solving Skills",
+"Confidence Building"
+]
+},
+
+{
+image:"https://res.cloudinary.com/demo/image/upload/sample.jpg",
+title:"Video & Graphic Designing",
+points:[
+"Canva",
+"Adobe Photoshop",
+"Adobe Illustrator",
+"Adobe Premiere Pro",
+"CapCut"
+]
+}
+
+]
+
+
+const courseData = data?.courses || defaultCourses
+
+
+
+/* BROCHURE POPUP */
+
+const openDownloadPopup = ()=>{
 setShowPopup(true)
 }
 
-const handleDownload = () =>{
 
-if(name === "" || mobile === "" || city === ""){
+const handleDownload = ()=>{
+
+if(name==="" || mobile==="" || city===""){
 alert("Please fill all details first")
 return
 }
 
 const message =
+
 `New Brochure Enquiry:
 Name: ${name}
 Mobile: ${mobile}
 City: ${city}`
 
+
 const whatsappURL =
 `https://wa.me/919650539195?text=${encodeURIComponent(message)}`
 
+
 window.open(whatsappURL,"_blank")
+
 
 const link = document.createElement("a")
 link.href = brochure
@@ -58,92 +110,72 @@ setShowPopup(false)
 
 }
 
-  return (
-    <div className="courses">
-
-      <h2 data-aos="fade-up" 
-        data-aos-delay="300" 
-        data-aos-anchor-placement="top-bottom"
-      >Our Courses</h2>
-
-    <div className='course-container'  ref={containerRef}>
-        
-        <div className="course">
-          <span><p>01</p></span>
-            <img src={digital} />
-            <h3>Advanced Digital Marketing Course</h3>
-            <ul>
-              <li> <FaArrowRight />  Social Media Marketing</li>
-              <li> <FaArrowRight />  Pay Per Click</li>
-              <li> <FaArrowRight />  Analytical Tools</li>
-              <li> <FaArrowRight />  Search Engine OPtimization</li>
-              <li> <FaArrowRight />  Content Marketing</li>
-            </ul>
-
-            <div className="button-container">
-              <button className="btn course-btn" onClick={openPopup}> 
-                Apply Now 
-              </button>
-
-              <button className="btn course-btn" onClick={openDownloadPopup}>
-                Download Brochure
-              </button>
-            </div>
-
-        </div>
-
-        <div className="course">
-          <span><p>02</p></span>
-            <img src={graphic} />
-            <h3>Business & Personality development</h3>
-            <ul>
-              <li><FaArrowRight />Communication Skills</li>
-              <li><FaArrowRight />Leadership Qualities</li>
-              <li><FaArrowRight />Time Management</li>
-              <li><FaArrowRight />Problem-Solving Skills</li>
-              <li><FaArrowRight />Confidence Building</li>
-            </ul>
-
-            <div className="button-container">
-              <button className="btn course-btn" onClick={openPopup}> 
-                Apply Now  
-              </button>
-
-              <button className="btn course-btn" onClick={openDownloadPopup}>
-                Download Brochure  
-              </button>
-            </div>
-
-        </div>
-
-        <div className="course">
-          <span><p>03</p></span>
-            <img src={video} />
-            <h3>Videoes and Graphic Designing</h3>
-            <ul>
-              <li><FaArrowRight />Canva</li>
-              <li><FaArrowRight />Adobe Photoshop</li>
-              <li><FaArrowRight />Adobe Illustrator</li>
-              <li><FaArrowRight />Adobe Premiere Pro</li>
-              <li><FaArrowRight />CapCut</li>
-            </ul>
-
-            <div className="button-container">
-              <button className="btn course-btn" onClick={openPopup}> 
-                Apply Now  
-              </button>
-
-              <button className="btn course-btn" onClick={openDownloadPopup}>
-                Download Brochure  
-              </button>
-            </div>
-            
-        </div>
-
-    </div>
 
 
-{/* POPUP */}
+return (
+
+<div className="courses">
+
+<h2
+data-aos="fade-up"
+data-aos-delay="300"
+data-aos-anchor-placement="top-bottom"
+>
+Our Courses
+</h2>
+
+
+
+<div className="course-container" ref={containerRef}>
+
+
+
+{/* DYNAMIC COURSES */}
+
+{courseData.map((course,index)=>(
+  
+<div className="course" key={index}>
+
+<span><p>{index+1}</p></span>
+
+<img src={course.image} alt="" />
+
+<h3>{course.title}</h3>
+
+<ul>
+
+{course.points.map((point,i)=>(
+<li key={i}>
+<FaArrowRight/> {point}
+</li>
+))}
+
+</ul>
+
+
+<div className="button-container">
+
+<button className="btn course-btn" onClick={openPopup}>
+Apply Now
+</button>
+
+<button className="btn course-btn" onClick={openDownloadPopup}>
+Download Brochure
+</button>
+
+</div>
+
+</div>
+
+))}
+
+
+
+</div>
+
+
+
+{/* BROCHURE POPUP */}
 
 {showPopup && (
 
@@ -174,7 +206,10 @@ value={city}
 onChange={(e)=>setCity(e.target.value)}
 />
 
-<button className="btn course-btn" onClick={handleDownload}>
+<button
+className="btn course-btn"
+onClick={handleDownload}
+>
 Download Brochure
 </button>
 
@@ -185,7 +220,9 @@ Download Brochure
 )}
 
 </div>
-  )
+
+)
+
 }
 
 export default Course
