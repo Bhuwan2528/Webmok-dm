@@ -2,9 +2,11 @@ import React from 'react'
 import './Footer.css'
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const Footer = ({ data }) => {
 
+    const navigate = useNavigate();
   const phone = data?.phone || "+91 8950329919";
 
   const branches = data?.branches || [
@@ -122,7 +124,7 @@ const Footer = ({ data }) => {
 
       <div className="copyright">
         <p>{copyright}</p> 
-        <a href="/admin-panel">Admin Panel</a>
+        <p className='admin-link' onClick={()=> {navigate('/admin-panel')}}> Admin Panel</p>
       </div>
     </>
   );

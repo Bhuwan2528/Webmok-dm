@@ -234,3 +234,9 @@ text-align:left;
 }
 
 }
+
+
+.admin-link{
+    text-decoration: underline;
+    cursor: pointer;
+}
