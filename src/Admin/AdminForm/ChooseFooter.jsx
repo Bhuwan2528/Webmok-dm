@@ -71,7 +71,7 @@ const fetchData = async()=>{
 
 try{
 
-const res = await fetch("http://localhost:5000/api/entries")
+const res = await fetch("https://webmok-dm-backend.onrender.com/api/entries")
 const data = await res.json()
 
 
@@ -262,7 +262,7 @@ copyright:formData.copyright
 }
 
 
-const res = await fetch("http://localhost:5000/api/entries",{
+const res = await fetch("https://webmok-dm-backend.onrender.com/api/entries",{
 
 method:"POST",
 

@@ -28,7 +28,7 @@ AOS.refresh()
 const defaultCourses = [
 
 {
-image:"https://res.cloudinary.com/demo/image/upload/sample.jpg",
+image:"https://dm-2.vercel.app/assets/digital-COzj8Waf.webp",
 title:"Advanced Digital Marketing Course",
 points:[
 "Social Media Marketing",
@@ -40,7 +40,7 @@ points:[
 },
 
 {
-image:"https://res.cloudinary.com/demo/image/upload/sample.jpg",
+image:"https://dm-2.vercel.app/assets/graphic-XEemZhzw.png",
 title:"Business & Personality Development",
 points:[
 "Communication Skills",
@@ -52,7 +52,7 @@ points:[
 },
 
 {
-image:"https://res.cloudinary.com/demo/image/upload/sample.jpg",
+image:"https://dm-2.vercel.app/assets/video-Cjx-c4Vz.jpeg",
 title:"Video & Graphic Designing",
 points:[
 "Canva",
