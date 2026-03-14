@@ -5,10 +5,12 @@ import logo from '../../assets/logo.png'
 import HeroAboutVideo from "../AdminForm/HeroAboutVideo";
 import CoursesTrainner from "../AdminForm/CoursesTrainner";
 import ChooseFooter from "../AdminForm/ChooseFooter";
+import { useNavigate } from "react-router-dom";
 
 const AdminPanel = () => {
 
   const [activePage, setActivePage] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -116,7 +118,7 @@ const AdminPanel = () => {
 
         <div className="ap-header">
 
-          <div className="ap-header-logo">
+          <div onClick={()=>{navigate('/')}} className="ap-header-logo">
             <img src={logo} alt="" />
           </div>
 
