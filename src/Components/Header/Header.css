@@ -105,5 +105,10 @@
   }
   .bottom-element{
     display: flex;
+    height: 70px;
+    width: 70px;
+  }
+  .bottom-element svg{
+    font-size: 32px;
   }
 }
