@@ -140,3 +140,10 @@ font-size:35px;
 color:white;
 cursor:pointer;
 }
+
+.width-auto.sq-btn{
+    width: fit-content;
+    margin-top: 30px;
+    margin-inline: auto;
+    display: block;
+}

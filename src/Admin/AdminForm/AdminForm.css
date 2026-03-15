@@ -196,3 +196,190 @@ flex-direction:column;
 }
 
 }
+
+
+
+/* ============================= */
+/* QUILL EDITOR WRAPPER */
+/* ============================= */
+
+.ql-container {
+  background: #ffffff;
+  color: #222 !important;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+/* editor content area */
+
+.ql-editor {
+  min-height: 400px;
+  color: #222;
+  line-height: 1.7;
+}
+
+/* placeholder text */
+
+.ql-editor.ql-blank::before {
+  color: #999;
+  font-style: normal;
+}
+
+
+
+/* ============================= */
+/* TOOLBAR */
+/* ============================= */
+
+.ql-toolbar {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+}
+
+/* icons */
+
+.ql-toolbar button svg {
+  fill: #333;
+}
+
+.ql-toolbar button:hover svg {
+  fill: #000;
+}
+
+/* active button */
+
+.ql-toolbar button.ql-active svg {
+  fill: #007bff;
+}
+
+
+/* ============================= */
+/* DROPDOWN (HEADINGS etc) */
+/* ============================= */
+
+.ql-picker {
+  color: #333;
+}
+
+.ql-picker-options {
+  background: #ffffff;
+  border: 1px solid #ddd;
+}
+
+.ql-picker-item {
+  color: #333;
+}
+
+.ql-picker-item:hover {
+  background: #f5f5f5;
+}
+
+/* dropdown label */
+
+.ql-picker-label {
+  color: #333;
+}
+
+
+/* ============================= */
+/* LINKS */
+/* ============================= */
+
+.ql-editor a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+
+/* ============================= */
+/* LISTS */
+/* ============================= */
+
+.ql-editor ul {
+  padding-left: 20px;
+}
+
+.ql-editor ol {
+  padding-left: 20px;
+}
+
+
+/* ============================= */
+/* HEADINGS */
+/* ============================= */
+
+.ql-editor h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.ql-editor h2 {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.ql-editor h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+
+/* ============================= */
+/* BORDER FIX */
+/* ============================= */
+
+.ql-container.ql-snow {
+  border-top: none;
+}
+
+
+/* editor wrapper */
+
+.ql-container {
+  background: #ffffff !important;
+}
+
+/* editor text */
+
+.ql-editor {
+  color: #111 !important;
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 300px;
+}
+
+/* headings */
+
+.ql-editor h1,
+.ql-editor h2,
+.ql-editor h3,
+.ql-editor h4 {
+  color: #111 !important;
+}
+
+/* paragraphs */
+
+.ql-editor p {
+  color: #111 !important;
+}
+
+/* lists */
+
+.ql-editor li {
+  color: #111 !important;
+}
+
+/* toolbar */
+
+.ql-toolbar {
+  background: #ffffff !important;
+}
+
+/* dropdown */
+
+.ql-picker-options {
+  background: #ffffff !important;
+}

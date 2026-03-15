@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import './Video.css'
 import { FaPlay } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
 const Video = ({ data }) => {
 
 const [popupVideo,setPopupVideo] = useState(null)
+const navigate = useNavigate();
 
 const openVideo = (video)=>{
 setPopupVideo(video)
@@ -72,6 +74,10 @@ playsInline
 </div>
 
 ))}
+
+
+
+        <button onClick={()=>{navigate('/testimonials')}} className="width-auto sq-btn">View All Testimonials</button>
 
         </div>
 

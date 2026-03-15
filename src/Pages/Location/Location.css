@@ -1,0 +1,39 @@
+.location-section{
+    padding:80px 8%;
+    background:#f2f3f5;
+}
+
+.location-container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+/* blocks */
+
+.location-box{
+    background:#062149;
+    color:white;
+    padding:25px;
+    border-radius:8px;
+    text-align:center;
+    font-size:18px;
+    font-weight:500;
+    transition:0.3s;
+}
+.location-box a{
+    text-decoration: none;
+}
+
+/* hover effect */
+
+.location-box:hover{
+    background:#09285a;
+    transform:translateY(-4px);
+}
+
+@media(max-width: 500px){
+    .location-container{
+        grid-template-columns:repeat(1,1fr);
+    }
+}

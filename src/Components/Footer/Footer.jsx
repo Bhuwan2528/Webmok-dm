@@ -93,6 +93,8 @@ const Footer = ({ data }) => {
 
             </div>
 
+          <button onClick={()=>{navigate('/locations')}} className="width-auto sq-btn">View Our All Locations</button>
+
           </div>
 
           <div className="email-container">

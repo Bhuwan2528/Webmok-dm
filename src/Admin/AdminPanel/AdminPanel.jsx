@@ -1,71 +1,88 @@
 import React, { useState, useEffect } from "react";
 import "./AdminPanel.css";
-import { FaRegCircle, FaSignOutAlt } from "react-icons/fa";
-import logo from '../../assets/logo.png'
+
+import {
+  FaHome,
+  FaVideo,
+  FaChalkboardTeacher,
+  FaLayerGroup,
+  FaMapMarkedAlt,
+  FaSignOutAlt
+} from "react-icons/fa";
+
+import logo from "../../assets/logo.png";
+
 import HeroAboutVideo from "../AdminForm/HeroAboutVideo";
 import CoursesTrainner from "../AdminForm/CoursesTrainner";
 import ChooseFooter from "../AdminForm/ChooseFooter";
+import LocationTable from "../LocationTable/LocationTable";
+
 import { useNavigate } from "react-router-dom";
 
 const AdminPanel = () => {
 
-  const [activePage, setActivePage] = useState(null);
+  const [activePage,setActivePage] = useState("dashboard");
+
   const navigate = useNavigate();
 
-  useEffect(() => {
+
+  useEffect(()=>{
 
     const token = localStorage.getItem("token");
 
-    if (!token) {
-      window.location.href = "/login";
+    if(!token){
+      window.location.href="/login";
     }
 
-  }, []);
+  },[]);
 
-  const logout = async () => {
 
-    try {
+  const logout = async()=>{
+
+    try{
 
       await fetch("https://webmok-dm-backend.onrender.com/api/auth/logout");
 
       localStorage.removeItem("token");
 
-      window.location.href = "/login";
+      window.location.href="/login";
 
-    } catch (err) {
+    }catch(err){
       console.log(err);
     }
 
   };
 
 
-/* ---------- RENDER LOGIC ---------- */
+  /* ---------- COMPONENT SWITCH ---------- */
 
+  const renderComponent = ()=>{
 
-  const renderComponent = () => {
-
-    switch (activePage) {
+    switch(activePage){
 
       case "HeroAboutVideo":
-        return <HeroAboutVideo />;
+        return <HeroAboutVideo/>;
 
       case "CoursesTrainner":
-        return <CoursesTrainner />;
+        return <CoursesTrainner/>;
 
       case "ChooseFooter":
-        return <ChooseFooter />;
+        return <ChooseFooter/>;
+
+      case "LocationPages":
+        return <LocationTable/>;
 
       default:
-        return (
+        return(
           <div className="ap-welcome">
-            <h1>Welcome Admin</h1>
-            <p>Select a section from sidebar.</p>
+            <h1>Welcome Admin 👋</h1>
+            <p>Select a section from the sidebar.</p>
           </div>
         );
+
     }
 
   };
-
 
 
   return (
@@ -76,32 +93,59 @@ const AdminPanel = () => {
 
       <div className="ap-sidebar">
 
-        <h2 className="ap-logo">Admin</h2>
+        <div className="ap-sidebar-top">
+
+          <img src={logo} alt="" />
+
+          <h2>Admin Panel</h2>
+
+        </div>
+
 
         <div className="ap-menu">
 
           <div
-            className={`ap-menu-item ${activePage==="HeroAboutVideo"?"active":""}`}
-            onClick={()=>setActivePage("HeroAboutVideo")}
+          className={`ap-menu-item ${activePage==="dashboard"?"active":""}`}
+          onClick={()=>setActivePage("dashboard")}
           >
-            <FaRegCircle/>
-            HeroAboutVideo
+            <FaHome/>
+            Dashboard
           </div>
 
-          <div
-            className={`ap-menu-item ${activePage==="CoursesTrainner"?"active":""}`}
-            onClick={()=>setActivePage("CoursesTrainner")}
-          >
-            <FaRegCircle/>
-            CoursesTrainner
-          </div>
 
           <div
-            className={`ap-menu-item ${activePage==="ChooseFooter"?"active":""}`}
-            onClick={()=>setActivePage("ChooseFooter")}
+          className={`ap-menu-item ${activePage==="HeroAboutVideo"?"active":""}`}
+          onClick={()=>setActivePage("HeroAboutVideo")}
           >
-            <FaRegCircle/>
-            ChooseFooter
+            <FaVideo/>
+            Hero, About & Video
+          </div>
+
+
+          <div
+          className={`ap-menu-item ${activePage==="CoursesTrainner"?"active":""}`}
+          onClick={()=>setActivePage("CoursesTrainner")}
+          >
+            <FaChalkboardTeacher/>
+            Courses & Trainers
+          </div>
+
+
+          <div
+          className={`ap-menu-item ${activePage==="ChooseFooter"?"active":""}`}
+          onClick={()=>setActivePage("ChooseFooter")}
+          >
+            <FaLayerGroup/>
+            Choose & Footer 
+          </div>
+
+
+          <div
+          className={`ap-menu-item ${activePage==="LocationPages"?"active":""}`}
+          onClick={()=>setActivePage("LocationPages")}
+          >
+            <FaMapMarkedAlt/>
+            Location Pages
           </div>
 
         </div>
@@ -110,20 +154,20 @@ const AdminPanel = () => {
 
 
 
-      {/* MAIN AREA */}
+      {/* MAIN */}
 
       <div className="ap-main">
+
 
         {/* HEADER */}
 
         <div className="ap-header">
 
-          <div onClick={()=>{navigate('/')}} className="ap-header-logo">
-            <img src={logo} alt="" />
-          </div>
+          <h2>Admin Dashboard</h2>
 
           <button className="ap-logout-btn" onClick={logout}>
-            <FaSignOutAlt/> Logout
+            <FaSignOutAlt/>
+            Logout
           </button>
 
         </div>

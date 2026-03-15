@@ -1,0 +1,194 @@
+/* ===============================
+   WRAPPER
+================================ */
+
+.location-table-wrapper{
+    width:100%;
+    padding:40px;
+    background:#f4f6fb;
+    min-height:100vh;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+/* ===============================
+   HEADER
+================================ */
+
+.location-table-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.location-table-header h2{
+    font-size:28px;
+    color:#222;
+    font-weight:600;
+}
+
+.location-count{
+    background:white;
+    padding:10px 16px;
+    border-radius:8px;
+    font-size:17px;
+    color:#444;
+    box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+
+.location-count.add-listing{
+    background: rgb(4, 48, 73);
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.location-count.add-listing span{
+    color: white;
+    font-size: 25px;
+}
+
+.location-count span{
+    font-weight:600;
+    color:#007bff;
+}
+
+
+/* ===============================
+   TABLE CONTAINER
+================================ */
+
+.table-container{
+    width:100%;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 4px 14px rgba(0,0,0,0.08);
+}
+
+
+/* ===============================
+   TABLE
+================================ */
+
+.location-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.location-table thead{
+    background:#0f172a;
+}
+
+.location-table th{
+    text-align:left;
+    padding:16px;
+    font-size:14px;
+    color:white;
+    letter-spacing:0.5px;
+}
+
+.location-table td{
+    padding:14px;
+    font-size:16px;
+    color:#333;
+    border:1px solid #999;
+}
+
+
+/* ===============================
+   ROW HOVER
+================================ */
+
+.location-table tbody tr{
+    transition:all 0.2s ease;
+}
+
+.location-table tbody tr:hover{
+    background:#f8fafc;
+}
+
+
+/* ===============================
+   ACTIONS
+================================ */
+
+.actions{
+    display:flex;
+    gap:15px;
+    align-items:center;
+}
+
+.icon{
+    font-size:16px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+
+/* VIEW */
+
+.icon.view{
+    fill:#2563eb;
+    font-size: 20px;
+}
+
+.icon.view:hover{
+    transform:scale(1.15);
+    fill:#1d4ed8;
+}
+
+
+/* EDIT */
+
+.icon.edit{
+    fill:#f59e0b;
+    font-size: 20px;
+}
+
+.icon.edit:hover{
+    transform:scale(1.15);
+    fill:#d97706;
+}
+
+
+/* DELETE */
+
+.icon.delete{
+    fill:#ef4444;
+    font-size: 20px;
+}
+
+.icon.delete:hover{
+    transform:scale(1.15);
+    fill:#dc2626;
+}
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media(max-width:768px){
+
+    .location-table-wrapper{
+        padding:20px;
+    }
+
+    .location-table-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .location-table th,
+    .location-table td{
+        padding:12px;
+        font-size:13px;
+    }
+
+}

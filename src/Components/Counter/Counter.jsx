@@ -54,7 +54,7 @@ const Countdown = ({openPopup}) => {
           <p>Seconds</p>
         </div>
       </div>
-      <button onClick={openPopup}>Register Now</button>
+      <button className="sq-btn" onClick={openPopup}>Register Now</button>
     </div>
   );
 };

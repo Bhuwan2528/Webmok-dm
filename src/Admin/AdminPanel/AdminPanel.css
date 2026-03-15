@@ -2,45 +2,69 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Inter, sans-serif;
 }
 
 .ap-wrapper{
 display:flex;
 height:100vh;
+background:#f4f6fb;
 }
 
 /* SIDEBAR */
 
 .ap-sidebar{
 
-width:240px;
+width:260px;
 
-background:linear-gradient(180deg,#081c4b,#092468);
+background:linear-gradient(180deg,#0f172a,#1e293b);
 
 color:white;
 
-padding:25px;
-
 display:flex;
 flex-direction:column;
+
+padding:20px;
+
+box-shadow:4px 0 20px rgba(0,0,0,0.15);
 }
 
-.ap-logo{
-font-size:22px;
-margin-bottom:30px;
+.ap-sidebar-top{
+
+display:flex;
+align-items:center;
+
+gap:10px;
+
+margin-bottom:35px;
 }
+
+.ap-sidebar-top img{
+width:40px;
+}
+
+.ap-sidebar-top h2{
+font-size:18px;
+font-weight:600;
+}
+
+
+
+/* MENU */
 
 .ap-menu{
 display:flex;
 flex-direction:column;
-gap:10px;
+gap:8px;
 }
 
 .ap-menu-item{
 
 display:flex;
+
 align-items:center;
-gap:10px;
+
+gap:12px;
 
 padding:12px 14px;
 
@@ -48,17 +72,30 @@ border-radius:8px;
 
 cursor:pointer;
 
-transition:0.3s;
+font-size:15px;
+
+transition:0.25s;
+}
+
+.ap-menu-item svg{
+font-size:16px;
 }
 
 .ap-menu-item:hover{
-background:rgba(255,255,255,0.15);
-transform:translateX(4px);
+
+background:rgba(255,255,255,0.12);
+
+transform:translateX(5px);
 }
 
 .ap-menu-item.active{
+
 background:white;
-color:#081c4b;
+
+color:#0f172a;
+fill:#0f172a !important;
+
+font-weight:600;
 }
 
 
@@ -77,25 +114,24 @@ flex-direction:column;
 
 .ap-header{
 
-height:80px;
+height:70px;
 
 display:flex;
-justify-content:space-between;
+
 align-items:center;
+
+justify-content:space-between;
 
 padding:0 30px;
 
-background:#f6f7fb;
+background:white;
 
-box-shadow:0 2px 8px rgba(0,0,0,0.08);
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
-.ap-header-logo{
-width: 80px;
-}
-
-.ap-header-logo img{
-    width: 100%;
+.ap-header h2{
+font-size:18px;
+color:#111827;
 }
 
 
@@ -105,26 +141,30 @@ width: 80px;
 .ap-logout-btn{
 
 display:flex;
+
 align-items:center;
+
 gap:8px;
+
+background:#ef4444;
 
 border:none;
 
-background:#0c2d82;
-
 color:white;
 
-padding:8px 16px;
+padding:12px 18px;
 
 border-radius:6px;
 
 cursor:pointer;
 
-transition:0.3s;
+font-size:16px;
+
+transition:0.25s;
 }
 
 .ap-logout-btn:hover{
-background:#051a52;
+background:#dc2626;
 }
 
 
@@ -135,25 +175,9 @@ background:#051a52;
 
 flex:1;
 
-background:#f2f4f8;
+overflow-y:auto;
 
-animation:apFade 0.3s ease;
-overflow-y: scroll;
-}
-
-
-
-/* CARD */
-
-.ap-panel-card{
-
-background:white;
-
-padding:30px;
-
-border-radius:10px;
-
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
+animation:fade 0.25s ease;
 }
 
 
@@ -161,22 +185,35 @@ box-shadow:0 5px 20px rgba(0,0,0,0.05);
 /* WELCOME */
 
 .ap-welcome{
+
 text-align:center;
-margin-top:120px;
-color: #333 ;
+
+margin-top:140px;
 }
 
-.ap-welcome h1, .ap-welcome p{
-    color: #333;
+.ap-welcome h1{
+
+font-size:32px;
+
+margin-bottom:10px;
+
+color:#111827;
 }
+
+.ap-welcome p{
+
+color:#6b7280;
+}
+
+
 
 /* ANIMATION */
 
-@keyframes apFade{
+@keyframes fade{
 
 from{
 opacity:0;
-transform:translateY(8px);
+transform:translateY(6px);
 }
 
 to{

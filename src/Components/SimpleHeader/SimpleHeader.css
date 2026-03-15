@@ -1,0 +1,61 @@
+.simple-header{
+    background: linear-gradient(135deg, rgb(227, 230, 233), rgb(255, 255, 255), rgb(227, 230, 233));
+}
+
+.simple-header .sticky-nav .btn{
+    background: linear-gradient(135deg, rgb(227, 230, 233), rgb(255, 255, 255), rgb(227, 230, 233));
+}
+
+.sh-btn{
+    background: linear-gradient(135deg, rgb(14, 50, 105), rgb(4, 28, 71) );
+}
+
+.banner-section{
+    position:relative;
+    width:100%;
+    height:85vh;
+    background:url("https://wallpapers.com/images/hd/hd-office-background-2560-x-1600-tu0cwqnuk9edlama.jpg") center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* Gradient Overlay */
+
+.banner-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,#031633be,#051e41ad);
+}
+
+/* Content */
+
+.banner-content{
+    position:relative;
+    text-align:center;
+    color:white;
+    z-index:2;
+}
+
+.banner-title{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.banner-breadcrumb{
+    font-size:16px;
+    opacity:0.9;
+    text-transform: lowercase;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end !important;
+    gap: 8px;
+}
+
+
+
+@media(max-width: 500px){
+    .banner-section{
+        height: 95vh;
+    }
+}
