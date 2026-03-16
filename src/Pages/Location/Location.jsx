@@ -1,36 +1,63 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Location.css'
 import SimpleHeader from '../../Components/SimpleHeader/SimpleHeader'
 import Footer from '../../Components/Footer/Footer'
+import { Link } from 'react-router-dom'
 
 const Location = () => {
+
+  const [locations,setLocations] = useState([])
+
+  useEffect(()=>{
+
+    const fetchLocations = async()=>{
+
+      try{
+
+        const res = await fetch("https://webmok-dm-backend.onrender.com/api/location/public")
+        const data = await res.json()
+
+        setLocations(data)
+
+      }catch(err){
+        console.log(err)
+      }
+
+    }
+
+    fetchLocations()
+
+  },[])
+
+
   return (
     <div>
-        <SimpleHeader title="Our Locations" />
 
-        <section className="location-section">
+      <SimpleHeader title="Our Locations" />
+
+      <section className="location-section">
 
         <div className="location-container">
 
-            <div className="location-box"> <a href='#'>Video Editting in Rohtak </a></div>
-            <div className="location-box"> <a href='#'>Video Editting in Rohtak </a></div>
-            <div className="location-box"> <a href='#'>Video Editting in Rohtak </a></div>
-            <div className="location-box"> <a href='#'>Video Editting in Rohtak </a></div>
-            <div className="location-box"> <a href='#'>Video Editting in Rohtak </a></div>
-            <div className="location-box"> <a href='#'>Video Editting in Rohtak </a></div>
-            <div className="location-box"> <a href='#'>Video Editting in Rohtak </a></div>
-            <div className="location-box"> <a href='#'>Video Editting in Rohtak </a></div>
-            <div className="location-box"> <a href='#'>Video Editting in Rohtak </a></div>
-            <div className="location-box"> <a href='#'>Video Editting in Rohtak </a></div>
+          {locations.map((item)=>(
+            
+            <div className="location-box" key={item._id}>
+
+              <Link to={`/${item.slug}`}>
+                {item.seoTitle}
+              </Link>
+
+            </div>
+
+          ))}
 
         </div>
 
-        </section>
+      </section>
 
-        <div className="footer-div">
-            <Footer/>
-        </div>
-        
+      <div className="footer-div">
+        <Footer/>
+      </div>
 
     </div>
   )

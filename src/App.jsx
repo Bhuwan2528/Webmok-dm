@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./Components/Header/Header";
 import { Route, Routes } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Login from "./Admin/Login/Login";
 import HeroAboutVideo from "./Admin/AdminForm/HeroAboutVideo";
 import CoursesTrainner from "./Admin/AdminForm/CoursesTrainner";
@@ -13,6 +14,13 @@ import LocationDetail from "./Pages/LocationDetail/LocationDetail";
 import LocationTable from "./Admin/LocationTable/LocationTable";
 
 const App = () => {
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
 
   return (
     <Routes>

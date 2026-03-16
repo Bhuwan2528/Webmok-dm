@@ -123,7 +123,7 @@ z-index:1000;
 
 .video-popup-box{
 position:relative;
-width:80%;
+width:fit-content;
 max-width:900px;
 }
 

@@ -6,12 +6,15 @@ import { MdCall } from "react-icons/md";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 import PopupForm from "../../Components/PopupForm/PopupForm";
+import { useNavigate } from 'react-router-dom';
 
 
 const SimpleHeader = ({ title, breadcrumb }) => {
 
     const [sticky, setSticky] = useState(false);
     const [showPopup,setShowPopup] = useState(false);
+
+    const navigate = useNavigate();
 
 
     const openPopup = () =>{
@@ -44,7 +47,7 @@ const SimpleHeader = ({ title, breadcrumb }) => {
         {/* NAVBAR */}
 
         <div className={`navbar ${sticky ? 'sticky-nav' : ''}`}>
-            <img src={logo} />
+            <img onClick={()=>{navigate('/')}} src={logo} />
 
             <div className="side-elements">
 

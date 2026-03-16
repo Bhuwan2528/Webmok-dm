@@ -104,13 +104,6 @@ const AdminPanel = () => {
 
         <div className="ap-menu">
 
-          <div
-          className={`ap-menu-item ${activePage==="dashboard"?"active":""}`}
-          onClick={()=>setActivePage("dashboard")}
-          >
-            <FaHome/>
-            Dashboard
-          </div>
 
 
           <div

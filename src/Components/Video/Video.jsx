@@ -54,7 +54,7 @@ const videoData = data || defaultVideo
 
 {/* DYNAMIC VIDEOS */}
 
-{videoData.videoUrls.map((video,index)=>(
+{videoData.videoUrls.slice(0,4).map((video,index)=>(
 
 <div
 key={index}
@@ -85,9 +85,12 @@ playsInline
 
 {popupVideo && (
 
-<div className="video-popup">
+<div className="video-popup" onClick={closeVideo}>
 
-<div className="video-popup-box">
+<div 
+className="video-popup-box"
+onClick={(e)=>e.stopPropagation()}
+>
 
 <IoClose
 className="close-video"
