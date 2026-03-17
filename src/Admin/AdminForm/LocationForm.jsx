@@ -17,16 +17,13 @@ const LocationForm = () => {
   const [formData,setFormData] = useState({
     seoTitle:"",
     metaDescription:"",
-  metaKeywords:"",
+    metaKeywords:"",
     slug:"",
     content:"",
-    status:"published"
+    status:"published",
+    field:""   // ✅ NEW FIELD
   });
 
-
-  // ================================
-  // REACT QUILL TOOLBAR
-  // ================================
 
   const modules = {
     toolbar:[
@@ -41,7 +38,7 @@ const LocationForm = () => {
 
 
   // ================================
-  // FETCH EXISTING DATA (EDIT MODE)
+  // FETCH EXISTING DATA
   // ================================
 
   useEffect(()=>{
@@ -68,16 +65,15 @@ const LocationForm = () => {
         setFormData({
           seoTitle:data.seoTitle || "",
           metaDescription:data.metaDescription || "",
-            metaKeywords:data.metaKeywords || "",
+          metaKeywords:data.metaKeywords || "",
           slug:data.slug || "",
           content:data.content || "",
-          status:data.status || "published"
+          status:data.status || "published",
+          field:data.field || ""   // ✅ SET FIELD
         });
 
       }catch(err){
-
         console.log(err);
-
       }
 
       setFetchLoading(false);
@@ -90,23 +86,21 @@ const LocationForm = () => {
 
 
   // ================================
-  // HANDLE INPUT CHANGE
+  // HANDLE CHANGE
   // ================================
 
   const handleChange = (e)=>{
-
     const {name,value} = e.target;
 
     setFormData({
       ...formData,
       [name]:value
     });
-
   };
 
 
   // ================================
-  // HANDLE SUBMIT
+  // SUBMIT
   // ================================
 
   const handleSubmit = async(e)=>{
@@ -135,21 +129,14 @@ const LocationForm = () => {
       const data = await res.json();
 
       if(res.ok){
-
         alert(id ? "Page Updated Successfully" : "Page Created Successfully");
-
         navigate("/admin-panel");
-
       }else{
-
         alert(data.message || "Something went wrong");
-
       }
 
     }catch(err){
-
       console.log(err);
-
     }
 
     setLoading(false);
@@ -157,12 +144,7 @@ const LocationForm = () => {
   };
 
 
-  // ================================
-  // LOADING STATE
-  // ================================
-
   if(fetchLoading){
-
     return(
       <div className="admin-container">
         <div className="admin-card">
@@ -170,7 +152,6 @@ const LocationForm = () => {
         </div>
       </div>
     );
-
   }
 
 
@@ -186,73 +167,83 @@ const LocationForm = () => {
 
         <br/><br/>
 
-        {/* SEO SECTION */}
+        {/* SEO */}
 
         <h2 className="section-title">SEO Information</h2>
 
         <div className="input-group">
           <label>SEO Title</label>
-
           <input
             type="text"
             name="seoTitle"
             value={formData.seoTitle}
-            placeholder="Best Video Editing Services in Delhi"
             onChange={handleChange}
             required
           />
         </div>
 
-
         <div className="input-group">
           <label>Meta Description</label>
-
           <textarea
             rows="3"
             name="metaDescription"
             value={formData.metaDescription}
-            placeholder="Professional video editing services in Delhi..."
             onChange={handleChange}
             required
           />
         </div>
 
         <div className="input-group">
-            <label>Meta Keywords</label>
-
-            <input
-                type="text"
-                name="metaKeywords"
-                value={formData.metaKeywords}
-                placeholder="video editing delhi, editing services, video editor delhi"
-                onChange={handleChange}
-            />
-        s</div>
-
+          <label>Meta Keywords</label>
+          <input
+            type="text"
+            name="metaKeywords"
+            value={formData.metaKeywords}
+            onChange={handleChange}
+          />
+        </div>
 
         <div className="input-group">
           <label>Slug (URL)</label>
-
           <input
             type="text"
             name="slug"
             value={formData.slug}
-            placeholder="video-editing-in-delhi"
             onChange={handleChange}
             required
           />
+        </div>
+
+
+        {/* ✅ FIELD SELECT */}
+
+        <div className="input-group">
+          <label>Course Field</label>
+
+          <select
+            name="field"
+            value={formData.field}
+            onChange={handleChange}
+            required
+            className="select-input"
+          >
+            <option value="">Select Field</option>
+            <option value="digital marketing">Digital Marketing</option>
+            <option value="web development">Web Development</option>
+            <option value="video editing">Video Editing</option>
+            <option value="graphic designing">Graphic Designing</option>
+            <option value="business development">Business Development</option>
+          </select>
         </div>
 
 
         <br/><br/>
 
-
-        {/* CONTENT SECTION */}
+        {/* CONTENT */}
 
         <h2 className="section-title">Page Content</h2>
 
         <div className="input-group">
-
           <label>Page Content</label>
 
           <ReactQuill
@@ -261,28 +252,18 @@ const LocationForm = () => {
             value={formData.content}
             onChange={(value)=>setFormData({...formData,content:value})}
           />
-
         </div>
-
 
         <br/>
 
-
-        <button
-          type="submit"
-          className="submit-btn"
-          disabled={loading}
-        >
+        <button type="submit" className="submit-btn" disabled={loading}>
           {loading ? "Saving..." : "Save Page"}
         </button>
-
 
       </form>
 
     </div>
-
   );
-
 };
 
 export default LocationForm;

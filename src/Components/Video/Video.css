@@ -50,8 +50,8 @@
   inset: 0;
   background: linear-gradient(
       to top,
-      rgba(9, 168, 231, 0.45),
-      rgba(6, 58, 82, 0.527),
+      rgba(23, 118, 161, 0.45),
+      rgba(1, 18, 26, 0.63),
       transparent
   );
   pointer-events: none;

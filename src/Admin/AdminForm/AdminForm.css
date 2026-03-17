@@ -215,8 +215,12 @@ flex-direction:column;
 
 .ql-editor {
   min-height: 400px;
-  color: #222;
+  color: #222 !important;
   line-height: 1.7;
+}
+
+.ql-editor * {
+  color: #222 !important;
 }
 
 /* placeholder text */
@@ -305,7 +309,9 @@ flex-direction:column;
 .ql-editor ol {
   padding-left: 20px;
 }
-
+ .ql-editor b, .ql-editor i, .ql-editor u{
+  color: #333;
+ }
 
 /* ============================= */
 /* HEADINGS */
@@ -382,4 +388,42 @@ flex-direction:column;
 
 .ql-picker-options {
   background: #ffffff !important;
+}
+
+
+/* SELECT FIELD STYLING */
+
+.select-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.select-input:hover {
+  border-color: #007bff;
+}
+
+.select-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* label spacing improve */
+
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #444;
+}
+
+option{
+  color: #333;
 }

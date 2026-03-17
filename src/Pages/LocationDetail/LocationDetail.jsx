@@ -4,6 +4,40 @@ import SimpleHeader from "../../Components/SimpleHeader/SimpleHeader";
 import Footer from "../../Components/Footer/Footer";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import Bottom from "../../Components/Bottom/Bottom";
+import Placement from "../../Components/Placement/Placement";
+import Video from "../../Components/Video/Video";
+import DigitalMarketingModules from "../../Components/Modules/DigitalMarketingModules";
+import VideoEditingModules from "../../Components/Modules/VideoEditingModules";
+import GraphicDesigningModules from "../../Components/Modules/GraphicDesigningModules";
+import BusinessDevelopmentModules from "../../Components/Modules/BusinessDevelopmentModules";
+import WebDevelopmentModules from "../../Components/Modules/WebDevelopmentModules";
+
+import dmBanner from '../../assets/dmBanner.png'
+import veBanner from '../../assets/veBanner.png'
+import gdBanner from '../../assets/gdBanner.png'
+import wdBanner from '../../assets/wdBanner.png'
+import bdBanner from '../../assets/bdBanner.png'
+
+// =========================
+// FIELD BASED MAPPING
+// =========================
+
+const bannerMap = {
+  "digital marketing": dmBanner,
+  "video editing": veBanner,
+  "graphic designing": gdBanner,
+  "business development": bdBanner,
+  "web development": wdBanner,
+};
+
+const moduleMap = {
+  "digital marketing": DigitalMarketingModules,
+  "video editing": VideoEditingModules,
+  "graphic designing": GraphicDesigningModules,
+  "business development": BusinessDevelopmentModules,
+  "web development": WebDevelopmentModules,
+};
 
 const LocationDetail = () => {
 
@@ -11,6 +45,7 @@ const LocationDetail = () => {
 
   const [page, setPage] = useState(null);
   const [loading, setLoading] = useState(true);
+  const SelectedModule = page ? moduleMap[page.field] : null;
 
 
   // =========================
@@ -24,7 +59,7 @@ const LocationDetail = () => {
       try {
 
         const res = await fetch(
-          `https://webmok-dm-backend.onrender.com/api/location/page/${slug}`
+          `http://localhost:5000/api/location/page/${slug}`
         );
 
         const data = await res.json();
@@ -79,28 +114,80 @@ const LocationDetail = () => {
     </Helmet>
 
 
-      <SimpleHeader title={page.seoTitle} breadcrumb={page.slug} />
+      <SimpleHeader/>
 
+      {/* ===== Banner Section ===== */}
+      <section className="course-banner-section">
+        <img
+          src={bannerMap[page.field] || dmBanner  }
+          alt={page.field}
+          className="course-banner-image"
+        />
+      </section>
 
-      {/* BLOG CONTENT */}
+      {/* ===== Intro Section ===== */}
+      <section className="intro-section">
 
-      <section className="location-article-wrapper">
+        <div className="intro-container">
 
-        <div className="location-article-container">
+          <h2 className="intro-title">
+            {page.seoTitle}
+          </h2>
 
-          <div
-            className="location-article-content"
-            dangerouslySetInnerHTML={{ __html: page.content }}
-          />
+          <p className="intro-description">
+            If you are looking to build a successful career in the digital industry, 
+            <strong> Webmok Pvt Ltd </strong> offers one of the 
+            <strong> best digital marketing courses in Rohtak</strong>. 
+            With over <strong>10+ years of experience</strong> in both training and digital services, 
+            we have helped thousands of students and businesses grow in the online world. 
+            Our institute has <strong>6 branches across North India</strong> including 
+            <strong> Rohtak, Delhi, Gurgaon, Noida, Hissar, and Dehradun</strong>. 
+            Along with Digital Marketing, we also provide professional training in 
+            <strong> Video Editing, Graphic Designing, Web Development,</strong> and 
+            <strong> Business Development</strong>. Our programs focus on practical learning, 
+            real industry projects, and career guidance, ensuring students gain the skills 
+            companies actually need. After successful course completion, we also provide 
+            <strong> 100% job assistance</strong> to help you confidently start your professional journey.
+          </p>
 
         </div>
 
       </section>
 
 
-      <div className="footer-div">
-        <Footer />
+      <div className="footer-div bottom">
+        <Bottom />
       </div>
+
+
+      {SelectedModule && <SelectedModule />}
+
+
+      <section className="course-blog-section">
+        <div className="course-blog-container">
+          <div 
+            className="course-blog-content"
+            dangerouslySetInnerHTML={{ 
+              __html: page.content.replace(/&nbsp;/g, " ") 
+            }}
+          />
+        </div>
+      </section>
+
+
+      <div className="bottom footer-div">
+          <Placement/>
+      </div>
+
+
+      <div className="simple">
+        <Video/> 
+      </div>
+      
+
+        <div className="footer-div">
+          <Footer />
+        </div>
 
     </div>
 

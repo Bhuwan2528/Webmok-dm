@@ -66,23 +66,6 @@ const SimpleHeader = ({ title, breadcrumb }) => {
 
         {/* BANNER */}
 
-        <section className="banner-section">
-
-        <div className="banner-overlay"></div>
-
-        <div className="banner-content">
-
-            <h1 className="banner-title">{title}</h1>
-
-            <p className="banner-breadcrumb">
-                Home <FaArrowRightLong />
-            {breadcrumb || title}
-            </p>
-
-        </div>   
-
-        </section>
-
 
 
         {/* FLOATING BUTTONS */}

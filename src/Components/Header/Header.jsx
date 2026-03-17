@@ -46,25 +46,27 @@ const Header = () => {
 
 
     useEffect(() => {
-
     const fetchData = async () => {
-
         try {
+        const res = await fetch("http://localhost:5000/api/entries");
 
-        const res = await fetch("https://webmok-dm-backend.onrender.com/api/entries");
+        if (!res.ok) {
+            throw new Error("API failed");
+        }
+
         const data = await res.json();
+        console.log("API DATA 👉", data);
 
         setPageData(data);
 
         } catch (err) {
-        console.log(err);
+        console.log("FETCH ERROR 👉", err);
         }
-
     };
 
     fetchData();
-
     }, []);
+
 
 
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import SimpleHeader from '../../Components/SimpleHeader/SimpleHeader';
 import Footer from '../../Components/Footer/Footer';
 import './Testimonials.css';
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const Testimonials = () => {
 
@@ -14,7 +15,7 @@ const Testimonials = () => {
 
       try {
 
-        const res = await fetch("https://webmok-dm-backend.onrender.com/api/entries");
+        const res = await fetch("http://localhost:5000/api/entries");
         const data = await res.json();
 
         // backend se video urls
@@ -34,7 +35,26 @@ const Testimonials = () => {
   return (
     <div>
 
-      <SimpleHeader title="Our Testimonials" />
+      <SimpleHeader />
+
+
+        <section className="banner-section">
+
+          <div className="banner-overlay"></div>
+
+          <div className="banner-content">
+
+              <h1 className="banner-title">Our Testimonials</h1>
+
+              <p className="banner-breadcrumb">
+                  Home <FaArrowRightLong />
+              our testimonials
+              </p>
+
+          </div>   
+
+        </section>
+
 
       <section className="video-section">
         <div className="video-container">

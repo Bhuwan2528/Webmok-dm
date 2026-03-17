@@ -32,7 +32,11 @@ videoUrls:[
 "https://res.cloudinary.com/dyiqsf4ze/video/upload/v1773039811/video1_hktex6.mp4",
 "https://res.cloudinary.com/dyiqsf4ze/video/upload/v1773039813/video2_um2bq5.mp4",
 "https://res.cloudinary.com/dyiqsf4ze/video/upload/v1773039812/video3_eqf8nf.mp4",
-"https://res.cloudinary.com/dyiqsf4ze/video/upload/v1773039858/video4_ddh3jo.mp4"
+"https://res.cloudinary.com/dyiqsf4ze/video/upload/v1773039858/video4_ddh3jo.mp4",
+"https://res.cloudinary.com/dyiqsf4ze/video/upload/v1773651425/VID-20260316-WA0017_pnhoiw.mp4",
+"https://res.cloudinary.com/dyiqsf4ze/video/upload/v1773651430/VID-20260316-WA0010_pqnyjb.mp4",
+"https://res.cloudinary.com/dyiqsf4ze/video/upload/v1773651432/VID-20260316-WA0011_vyngfx.mp4",
+"https://res.cloudinary.com/dyiqsf4ze/video/upload/v1773651434/VID-20260316-WA0009_rpq4kt.mp4"
 ]
 
 }
@@ -54,7 +58,7 @@ const videoData = data || defaultVideo
 
 {/* DYNAMIC VIDEOS */}
 
-{videoData.videoUrls.slice(0,4).map((video,index)=>(
+{videoData.videoUrls.slice(0,8).map((video,index)=>(
 
 <div
 key={index}

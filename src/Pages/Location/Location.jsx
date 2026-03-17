@@ -3,6 +3,7 @@ import './Location.css'
 import SimpleHeader from '../../Components/SimpleHeader/SimpleHeader'
 import Footer from '../../Components/Footer/Footer'
 import { Link } from 'react-router-dom'
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const Location = () => {
 
@@ -14,7 +15,7 @@ const Location = () => {
 
       try{
 
-        const res = await fetch("https://webmok-dm-backend.onrender.com/api/location/public")
+        const res = await fetch("http://localhost:5000/api/location/public")
         const data = await res.json()
 
         setLocations(data)
@@ -33,7 +34,24 @@ const Location = () => {
   return (
     <div>
 
-      <SimpleHeader title="Our Locations" />
+      <SimpleHeader/>
+
+        <section className="banner-section">
+
+          <div className="banner-overlay"></div>
+
+          <div className="banner-content">
+
+              <h1 className="banner-title">Our Locations</h1>
+
+              <p className="banner-breadcrumb">
+                  Home <FaArrowRightLong />
+              our locations
+              </p>
+
+          </div>   
+
+        </section>
 
       <section className="location-section">
 

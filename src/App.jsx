@@ -38,6 +38,7 @@ const App = () => {
       <Route path="/admin/location/new" element={<LocationForm />} />
       <Route path="/admin/location/edit/:id" element={<LocationForm />} />
       <Route path="/admin/location-table" element={<LocationTable />} />
+      <Route path="/location-detail" element={<LocationDetail />} />
       
       <Route path="/:slug" element={<LocationDetail />} />
 

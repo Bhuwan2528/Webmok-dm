@@ -20,7 +20,7 @@ const LocationTable = () => {
     try {
 
       const res = await fetch(
-        "https://webmok-dm-backend.onrender.com/api/location",
+        "http://localhost:5000/api/location",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -63,7 +63,7 @@ const LocationTable = () => {
     try {
 
       await fetch(
-        `https://webmok-dm-backend.onrender.com/api/location/${id}`,
+        `http://localhost:5000/api/location/${id}`,
         {
           method: "DELETE",
           headers: {

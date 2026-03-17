@@ -34,7 +34,7 @@ export default function Placement() {
   return (
     <div className="placement-partners">
 
-        <h2>Our Placement Partners</h2>
+        <h2>Our Placement Partners</h2> 
 
       {/* First Slider */}
       <div className="slider slider-left-to-right">
