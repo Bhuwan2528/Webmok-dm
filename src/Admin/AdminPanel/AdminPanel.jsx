@@ -41,7 +41,7 @@ const AdminPanel = () => {
 
     try{
 
-      await fetch("http://localhost:5000/api/auth/logout");
+      await fetch("https://webmok-dm-backend.onrender.com/api/auth/logout");
 
       localStorage.removeItem("token");
 

@@ -15,7 +15,7 @@ const Location = () => {
 
       try{
 
-        const res = await fetch("http://localhost:5000/api/location/public")
+        const res = await fetch("https://webmok-dm-backend.onrender.com/api/location/public")
         const data = await res.json()
 
         setLocations(data)

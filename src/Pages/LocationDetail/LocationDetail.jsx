@@ -59,7 +59,7 @@ const LocationDetail = () => {
       try {
 
         const res = await fetch(
-          `http://localhost:5000/api/location/page/${slug}`
+          `https://webmok-dm-backend.onrender.com/api/location/page/${slug}`
         );
 
         const data = await res.json();
