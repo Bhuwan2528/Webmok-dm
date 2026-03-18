@@ -476,10 +476,10 @@ font-size:15px;
     margin: 3rem auto;
 }
 
-.videoes h2{
+.simple .videoes h2{
   color: #222;
 }
-.videoes p{
+.simple .videoes p{
   color: #333;
   line-height: 1.6;
 }
