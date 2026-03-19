@@ -126,7 +126,7 @@ const Footer = ({ data }) => {
 
       <div className="copyright">
         <p>{copyright}</p> 
-        <p className='admin-link' onClick={()=> {navigate('/admin-panel')}}> Admin Panel</p>
+        {/* <p className='admin-link' onClick={()=> {navigate('/admin-panel')}}> Admin Panel</p> */}
       </div>
     </>
   );

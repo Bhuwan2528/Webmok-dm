@@ -80,8 +80,27 @@ playsInline
 ))}
 
 
+    <div className="cta-buttons">
+      <button onClick={()=>{navigate('/testimonials')}} className="width-auto sq-btn">View All Testimonials</button>
 
-        <button onClick={()=>{navigate('/testimonials')}} className="width-auto sq-btn">View All Testimonials</button>
+      <button 
+        onClick={() => window.location.href = "tel:+918684031003"} 
+        className="width-auto sq-btn"
+      >
+        Call Now
+      </button>
+
+      <button 
+        onClick={() => window.open("https://wa.me/918684031003", "_blank")} 
+        className="width-auto sq-btn"
+      >
+        Enquire Now
+      </button>
+
+    </div>
+
+
+        
 
         </div>
 

@@ -147,3 +147,10 @@ cursor:pointer;
     margin-inline: auto;
     display: block;
 }
+
+.cta-buttons .width-auto.sq-btn{
+    width: 320px;
+    margin-top: 0px;
+    margin-inline: auto;
+    display: block;
+}

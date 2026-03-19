@@ -1,99 +1,128 @@
-.modules-section{
-padding:80px 20px;
-background:#f9fafc;
+/* =========================
+SECTION
+========================= */
+
+.modules-section {
+  padding: clamp(50px, 6vw, 90px) 16px;
+  background: #f7faff;
 }
 
-.modules-container{
-max-width:1200px;
-margin:auto;
-text-align:center;
+.modules-container {
+  max-width: 1200px;
+  margin-inline: auto;
+  text-align: center;
 }
 
-.modules-title{
-font-size:36px;
-font-weight:700;
-margin-bottom:15px;
-color:#111;
+/* =========================
+TEXT
+========================= */
+
+.modules-title {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #111;
 }
 
-.modules-desc{
-max-width:750px;
-margin:auto;
-font-size:17px;
-color:#555;
-line-height:1.7;
-margin-bottom:50px;
+.modules-desc {
+  max-width:850px;
+  margin-inline: auto;
+  font-size: clamp(15px, 2vw, 17px);
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: clamp(30px, 5vw, 50px);
 }
 
+/* =========================
+GRID (FIXED → AUTO RESPONSIVE)
+========================= */
 
-/* GRID */
-
-/* GRID */
-
-.modules-grid{
-display:grid;
-grid-template-columns:repeat(6,1fr);
-gap:25px;
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: clamp(15px, 2vw, 25px);
 }
 
+/* =========================
+CARD
+========================= */
 
-/* CARD */
+.module-card {
+  background: linear-gradient(145deg, #eef4ff, #e6efff);
+  padding: clamp(20px, 3vw, 30px) 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(80, 120, 255, 0.12);
+  transition: all 0.35s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 
-.module-card{
-background:linear-gradient(to bottom,#e5eefa,#eef4ff);
-padding:30px 15px;
-border-radius:14px;
-border:1px solid rgba(80,120,255,0.15);
-transition:all 0.35s ease;
-cursor:pointer;
-position:relative;
-overflow:hidden;
-box-shadow:0 0px 20px rgba(180, 180, 180, 0.25);
+  /* glass feel */
+  backdrop-filter: blur(8px);
+
+  /* shadow */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
+/* =========================
+ICON
+========================= */
 
-/* ICON */
-
-.module-icon svg{
-font-size:34px;
-margin-bottom:12px;
-fill:#0a2e57;
-transition:0.3s;
+.module-icon svg {
+  font-size: clamp(26px, 3vw, 34px);
+  margin-bottom: 10px;
+  fill: #0a2e57;
+  transition: 0.3s;
 }
 
-.module-name{
-font-size:14px;
-font-weight:500;
-color:#333;
-line-height:1.4;
+/* =========================
+TEXT
+========================= */
+
+.module-name {
+  font-size: clamp(13px, 2vw, 15px);
+  font-weight: 500;
+  color: #333;
+  line-height: 1.4;
 }
 
+/* =========================
+HOVER EFFECT (DESKTOP ONLY)
+========================= */
 
-/* HOVER EFFECT */
+@media (hover: hover) {
 
-.module-card:hover{
-transform:translateY(-6px);
-box-shadow:0 10px 30px rgba(59,130,246,0.25);
-background:linear-gradient(145deg,#eef4ff,#e6f0ff);
+  .module-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.25);
+    background: linear-gradient(145deg, #eef4ff, #dfeaff);
+  }
+
+  .module-card:hover .module-icon {
+    transform: scale(1.15);
+    fill: #2563eb;
+  }
+
+  .module-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top, #3b82f6, transparent);
+    opacity: 0;
+    transition: 0.4s;
+  }
+
+  .module-card:hover::before {
+    opacity: 0.15;
+  }
 }
 
-.module-card:hover .module-icon{
-transform:scale(1.1);
-color:#2563eb;
+/* =========================
+TOUCH DEVICES FIX
+========================= */
+
+@media (hover: none) {
+  .module-card {
+    transform: none !important;
+  }
 }
-
-.module-card::before{
-content:"";
-position:absolute;
-width:100%;
-height:100%;
-background:radial-gradient(circle at top,#3b82f6,transparent);
-opacity:0;
-transition:0.4s;
-}
-
-.module-card:hover::before{
-opacity:0.15;
-}
-
-

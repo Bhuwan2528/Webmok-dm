@@ -153,8 +153,8 @@ Banner Section
 }
 
 .course-banner-image{
-    min-width:100% !important;
-    height:auto;
+    width:100% !important;
+    height:auto !important;
     display:block;
     object-fit:cover;
 }
@@ -245,9 +245,11 @@ grid-template-columns:repeat(2,1fr);
 gap:15px;
 }
 
-.modules-title{
-font-size:26px;
+.intro-title{
+    font-size:20px;
 }
+
+
 
 .modules-desc{
 font-size:15px;
@@ -483,3 +485,141 @@ font-size:15px;
   color: #333;
   line-height: 1.6;
 }
+
+
+
+
+
+
+
+
+/* =========================
+CTA WRAPPER
+========================= */
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin: 50px 0;
+  flex-wrap: wrap;
+}
+
+/* =========================
+COMMON BUTTON STYLE
+========================= */
+
+.cta-btn {
+  position: relative;
+  padding: 13px 26px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+
+  transition: all 0.35s ease;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* =========================
+CALL BUTTON (GLASS BLUE)
+========================= */
+
+.call-btn {
+  background: rgb(5, 51, 82);
+  color: #eee;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+/* glow layer */
+.call-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #3b82f6, transparent);
+  opacity: 0;
+  transition: 0.4s;
+  z-index: -1;
+}
+
+/* hover */
+.call-btn:hover {
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+
+.call-btn:hover::before {
+  opacity: 1;
+}
+
+/* =========================
+DOWNLOAD BUTTON (PRIMARY)
+========================= */
+
+.download-btn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.25);
+}
+
+/* shine effect */
+.download-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  transform: skewX(-20deg);
+  transition: 0.6s;
+}
+
+.download-btn:hover::after {
+  left: 120%;
+}
+
+/* hover */
+.download-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+}
+
+/* =========================
+ICON STYLE (OPTIONAL)
+========================= */
+
+.cta-btn svg {
+  font-size: 16px;
+}
+
+/* =========================
+MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 480px) {
+
+  .cta-buttons {
+    gap: 12px;
+    margin: 30px 0;
+  }
+
+  .cta-btn {
+    width: 90%;
+    justify-content: center;
+    padding: 16px;
+    font-size: 15px;
+  }
+}
+

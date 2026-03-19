@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./LocationDetail.css";
+import { FaPhone, FaDownload } from "react-icons/fa";
+import { FiPhoneCall } from "react-icons/fi";
+
 import SimpleHeader from "../../Components/SimpleHeader/SimpleHeader";
 import Footer from "../../Components/Footer/Footer";
 import { useParams } from "react-router-dom";
@@ -7,6 +10,8 @@ import { Helmet } from "react-helmet-async";
 import Bottom from "../../Components/Bottom/Bottom";
 import Placement from "../../Components/Placement/Placement";
 import Video from "../../Components/Video/Video";
+import DownloadBrochure from "../../Components/DownloadBrochure/DownloadBrochure";
+
 import DigitalMarketingModules from "../../Components/Modules/DigitalMarketingModules";
 import VideoEditingModules from "../../Components/Modules/VideoEditingModules";
 import GraphicDesigningModules from "../../Components/Modules/GraphicDesigningModules";
@@ -46,6 +51,8 @@ const LocationDetail = () => {
   const [page, setPage] = useState(null);
   const [loading, setLoading] = useState(true);
   const SelectedModule = page ? moduleMap[page.field] : null;
+
+  const [showPopup, setShowPopup] = useState(false);
 
 
   // =========================
@@ -154,6 +161,22 @@ const LocationDetail = () => {
 
       </section>
 
+      {/* CTA BTNS  */}
+      <div className="cta-buttons">
+
+        <a href="tel:+918684031003" className="cta-btn call-btn">
+          <FiPhoneCall /> Call Now
+        </a>
+
+        <button
+          className="cta-btn download-btn"
+          onClick={() => setShowPopup(true)}
+        >
+          <FaDownload /> Download Brochure
+        </button>
+
+      </div>
+
 
       <div className="footer-div bottom">
         <Bottom />
@@ -161,6 +184,22 @@ const LocationDetail = () => {
 
 
       {SelectedModule && <SelectedModule />}
+
+      {/* CTA BTNS  */}
+      <div className="cta-buttons">
+
+        <a href="tel:+918684031003" className="cta-btn call-btn">
+          <FiPhoneCall /> Call Now
+        </a>
+
+        <button
+          className="cta-btn download-btn"
+          onClick={() => setShowPopup(true)}
+        >
+          <FaDownload /> Download Brochure
+        </button>
+
+      </div>
 
 
       <section className="course-blog-section">
@@ -188,6 +227,10 @@ const LocationDetail = () => {
         <div className="footer-div">
           <Footer />
         </div>
+
+        {showPopup && (
+          <DownloadBrochure onClose={() => setShowPopup(false)} />
+        )}
 
     </div>
 
