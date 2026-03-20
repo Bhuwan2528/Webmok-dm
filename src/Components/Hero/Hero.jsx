@@ -30,6 +30,9 @@ const Hero = ({ data }) => {
     data?.placementText ||
     'कोर्स पूरा होने के बाद <span>15 दिनों</span> के अंदर कंपनी द्वारा <span> प्लेसमेंट</span> – वरना <span class="fees">100% फीस वापसी!</span>'
 
+  const heroImg =
+    data?.heroImg || hero
+
   return (
     <div className="hero">
 
@@ -57,7 +60,7 @@ const Hero = ({ data }) => {
         <p dangerouslySetInnerHTML={{ __html: placementText }} />
       </div>
 
-      <img src={hero} alt="hero"/>
+      <img src={heroImg || hero} alt="hero"/>
 
     </div>
   )

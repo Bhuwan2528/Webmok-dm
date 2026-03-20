@@ -9,6 +9,7 @@ const [formData,setFormData]=useState({
   heroText:"",
   typewriterWords:"",
   placementText:"",
+  heroImg:"",
 
   aboutHeading:"",
   aboutDescription:"",
@@ -42,7 +43,8 @@ if (data?.hero) {
     startingPackage: data.hero.startingPackage || "",
     heroText: data.hero.heroText || "",
     typewriterWords: data.hero.typewriterWords?.join(", ") || "",
-    placementText: data.hero.placementText || ""
+    placementText: data.hero.placementText || "",
+    heroImg: data.hero.heroImg || "",
   }));
 }
 
@@ -109,7 +111,8 @@ const handleSubmit = async (e) => {
         typewriterWords: formData.typewriterWords
           .split(",")
           .map(word => word.trim()),
-        placementText: formData.placementText
+        placementText: formData.placementText,
+        heroImg: formData.heroImg,
       },
 
       about: {
@@ -216,7 +219,19 @@ const handleSubmit = async (e) => {
             placeholder='कोर्स पूरा होने के बाद <span>15 दिनों</span> के अंदर कंपनी द्वारा <span> प्लेसमेंट</span> – वरना <span class="fees">100% फीस वापसी!</span>'
             onChange={handleChange}
           />
+
         </div>
+
+          <div className="input-group">
+            <label>Hero Image</label>
+            <input
+              type="text"
+              name="heroImg"
+              value={formData.heroImg}
+              placeholder="Hero Image URL"
+              onChange={handleChange}
+            />
+          </div>
 
         <br /><br />
 
