@@ -25,7 +25,7 @@ TEXT
 }
 
 .modules-desc {
-  max-width:850px;
+  max-width: 850px;
   margin-inline: auto;
   font-size: clamp(15px, 2vw, 17px);
   color: #555;
@@ -34,13 +34,33 @@ TEXT
 }
 
 /* =========================
-GRID (FIXED → AUTO RESPONSIVE)
+GRID (FIXED RESPONSIVE)
 ========================= */
 
 .modules-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: clamp(15px, 2vw, 25px);
+}
+
+/* 📱 MOBILE → ALWAYS 2 CARDS */
+@media (max-width: 600px) {
+  .modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 💻 TABLET */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .modules-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
+
+/* 🖥️ DESKTOP */
+@media (min-width: 1025px) {
+  .modules-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
 }
 
 /* =========================
@@ -57,11 +77,20 @@ CARD
   position: relative;
   overflow: hidden;
 
-  /* glass feel */
   backdrop-filter: blur(8px);
-
-  /* shadow */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 📱 MOBILE OPTIMIZATION */
+@media (max-width: 600px) {
+  .module-card {
+    padding: 18px 10px;
+  }
 }
 
 /* =========================
@@ -100,6 +129,9 @@ HOVER EFFECT (DESKTOP ONLY)
 
   .module-card:hover .module-icon {
     transform: scale(1.15);
+  }
+
+  .module-card:hover .module-icon svg {
     fill: #2563eb;
   }
 
