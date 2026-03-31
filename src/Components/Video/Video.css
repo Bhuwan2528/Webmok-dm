@@ -77,7 +77,13 @@
         
     flex: 0 0 auto;   /* shrink nahi hoga */
     }
+
+    .cta-buttons .width-auto.sq-btn {
+    width: 280px;
 }
+}
+
+
 
 
 .video{
