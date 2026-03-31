@@ -127,7 +127,6 @@
   }
 
   .video-container {
-    grid-template-columns: 1fr;
     gap: 18px;
   }
 
